@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: Student Management APIs
+  description: Student Management System
+  version: 1.0.1
+
+servers:
+  - url: http://localhost:3000
+    description: for local host - regular
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+    cookieAuth: # arbitrary name for the security scheme; will be used in the "security" key later
+      type: apiKey
+      in: cookie
+      name: token # cookie name
+
+paths:
+  /signup:
+    post:
+      tags:
+        - Admin
+      summary: signup a new Admin. required fields are - firstName, lastName, email, password
+      requestBody:
+        content:
+          multipart/from-data:
+            schema:
+              type: Object
+              required:
+                - firstName
+                - lastName
+                - email
+                - password
+              propperties:
+                firstName:
+                  type: String
+                  required: true
+                lastName:
+                  type: String
+                  required: true
+                email:
+                  type: String
+                  required: true
+                password:
+                  type: String
+                  required: true
+      responses:
+        200:
+          description: All good success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  token:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      role:
+                        type: string
+                      photo:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          secure_url:
+                            type: string
+                      _id:
+                        type: string
+                      createdAt:
+                        type: string
+        400:
+          description: Bad request
+        500:
+          description: internal server error
