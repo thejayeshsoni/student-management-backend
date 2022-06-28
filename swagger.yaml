@@ -15,12 +15,12 @@ servers:
         enum:
           - localhost:3000
           - student-management-webapps.herokuapp.com
-        default: localhost:3000
+        default: student-management-webapps.herokuapp.com
       protocol:
         enum:
           - http
           - https
-        default: http
+        default: https
 
 components:
   securitySchemes:
