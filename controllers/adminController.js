@@ -11,7 +11,7 @@ exports.signUp = async (req, res) => {
         }
 
         const existingAdmin = await User.findOne({ email: email }).exec();
-        console.log(existingAdmin);
+        // console.log(existingAdmin);
         if (existingAdmin) {
             return res.status(400).json({ message: "User already exists.." });
         }

@@ -5,9 +5,13 @@ const cookietoken = (user, res) => {
         httpOnly: true
     });
     user.password = undefined;
+    if (user.role === "admin") {
+        user.results = undefined;
+    }
     res.status(200).cookie('token', token, options).json({
         success: true,
-        token
+        token,
+        user
     });
 }
 
