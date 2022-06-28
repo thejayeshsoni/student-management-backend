@@ -1,5 +1,5 @@
-# student-application 🧑‍🎓
-Basic CRUD Application
+# student-application 🧑‍🎓 
+Basic CRUD Application <ins>[LIVE PREVIEW](https://student-management-webapps.herokuapp.com/api-docs/)</ins>
 ### Problem Statement- Create a CRUD Operations for a Student Application having the following functionality.
 <ol>
    <li>Admin can register the students and circulate the StudentID to respective Student</li>
